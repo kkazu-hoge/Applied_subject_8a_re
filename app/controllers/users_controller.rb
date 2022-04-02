@@ -5,9 +5,12 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    #ページネーション
+    #ページネーション追加
     @books = @user.books.page(params[:page])
     @book = Book.new
+    #投稿数関連のデータ取得
+    @post_books_cnt = User.find(params[:id]).post_books_count
+    # binding.pry
   end
 
   def index

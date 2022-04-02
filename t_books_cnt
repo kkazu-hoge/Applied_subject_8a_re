@@ -1,0 +1,13 @@
+
+[1mFrom:[0m /home/ec2-user/environment/Applied_subject_7b/app/controllers/users_controller.rb:13 UsersController#show:
+
+     [1;34m6[0m: [32mdef[0m [1;34mshow[0m
+     [1;34m7[0m:   @user = [1;34;4mUser[0m.find(params[[33m:id[0m])
+     [1;34m8[0m:   [1;34m#ページネーション追加[0m
+     [1;34m9[0m:   @books = @user.books.page(params[[33m:page[0m])
+    [1;34m10[0m:   @book = [1;34;4mBook[0m.new
+    [1;34m11[0m:   [1;34m#投稿数関連のデータ取得[0m
+    [1;34m12[0m:   @post_books_cnt = [1;34;4mUser[0m.find(params[[33m:id[0m]).post_books_count
+ => [1;34m13[0m:   binding.pry
+    [1;34m14[0m: [32mend[0m
+

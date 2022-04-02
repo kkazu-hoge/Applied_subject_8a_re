@@ -1,0 +1,44 @@
+<table class='table table-hover table-inverse table-bordered'>
+  <thead class="table-info">
+    <tr>
+      <th>今日の投稿数</th>
+      <th>前日の投稿数</th>
+      <th>前日比</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><%= post_books_cnt["today_post"] %></td>
+        <td><%= post_books_cnt["previous_post"] %></td>
+        <td>
+          <% if post_books_cnt["day_ratio"].nan? || post_books_cnt["day_ratio"].infinite? == 1 %>
+            -
+          <% else %>
+            <%= post_books_cnt["day_ratio"] %>
+          <% end %>
+          %</td>
+      </tr>
+  </tbody>
+</table>
+<table class='table table-hover table-inverse table-bordered'>
+  <thead class="table-info">
+    <tr>
+      <th>今週の投稿数</th>
+      <th>先週の投稿数</th>
+      <th>前週比</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><%= post_books_cnt["thisweek_post"] %></td>
+        <td><%= post_books_cnt["lastweek_post"] %></td>
+        <td>
+        <% if post_books_cnt["week_ratio"].nan?  || post_books_cnt["week_ratio"].infinite? == 1 %>
+            -
+        <% else %>
+          <%= post_books_cnt["week_ratio"] %>
+        <% end %>
+        %</td>
+      </tr>
+  </tbody>
+</table>
