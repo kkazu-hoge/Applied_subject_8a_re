@@ -15,7 +15,8 @@ class BooksController < ApplicationController
   end
 
   def index
-    @books = Book.all
+    #ページネーション追加
+    @books = Book.all.page(params[:page])
     @book = Book.new
   end
 
@@ -26,7 +27,7 @@ class BooksController < ApplicationController
     if @book.save
       redirect_to book_path(@book), notice: "You have created book successfully."
     else
-      @books = Book.all
+      @books = Book.all.page(params[:page])
       render 'index'
     end
   end
