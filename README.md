@@ -1,15 +1,14 @@
 # README
 
-# <App_start>
-$ git clone "remote_repository_url" "local_repository_name"
-$ cd "local_repository_name"
-$ bundle install
-$ rails webpacker:install
-$ rails webpacker:compile
-$ rails db:migrate
-$ rails db:seed
-$ rails s
-
+* [App_start]
+* $ git clone "remote_repository_url" "local_repository_name"
+* $ cd "local_repository_name"
+* $ bundle install
+* $ rails webpacker:install
+* $ rails webpacker:compile
+* $ rails db:migrate
+* $ rails db:seed
+* $ rails s
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
