@@ -10,7 +10,7 @@
       <h2>Books</h2>
       <%= render 'books/index',books: @books %>
       <h2>投稿数の前日比・前週比</h2>
-      <%= render 'users/user_post_count', post_books_cnt: @post_books_cnt%>
+      <%= render 'users/user_post_count', post_books_cnt: @post_books_cnt %>
       <h2>7日間分の投稿数</h2>
       <%= render 'users/week_post_count',
       {
@@ -23,8 +23,13 @@
         ago6_post_count: @ago6_post_count
       }
       %>
-      <h2>グラフ</h2>
-      <%= render 'users/week_post_graph' %>
+      <h6 class="graph_title" >7日間の投稿数の比較</h6>
+      <%= render 'users/week_post_graph',
+      {
+        graph_label: @graph_label.to_json.html_safe,
+        graph_prot_count: @graph_prot_count
+      }
+      %>
     </div>
   </div>
 </div>
