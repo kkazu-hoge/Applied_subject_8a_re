@@ -56,3 +56,6 @@ gem 'devise'
 gem 'pry-rails'
 
 gem 'kaminari','~> 1.2.1'
+
+gem 'chart-js-rails', '~> 0.1.7'
+
