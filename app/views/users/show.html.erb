@@ -11,6 +11,18 @@
       <%= render 'books/index',books: @books %>
       <h2>投稿数の前日比・前週比</h2>
       <%= render 'users/user_post_count', post_books_cnt: @post_books_cnt%>
+      <h2>7日間分の投稿数</h2>
+      <%= render 'users/week_post_count',
+      {
+        today_post_count: @today_post_count,
+        previous_post_count: @previous_post_count,
+        ago2_post_count: @ago2_post_count,
+        ago3_post_count: @ago3_post_count,
+        ago4_post_count: @ago4_post_count,
+        ago5_post_count: @ago5_post_count,
+        ago6_post_count: @ago6_post_count
+      }
+      %>
     </div>
   </div>
 </div>
