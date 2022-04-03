@@ -18,6 +18,9 @@ class UsersController < ApplicationController
     @ago4_post_count = @user.books.ago4_post_books
     @ago5_post_count = @user.books.ago5_post_books
     @ago6_post_count = @user.books.ago6_post_books
+     #グラフ表示用の配列
+    # @post_grafh_label =
+    # @post_grafh_data =
     # binding.pry
   end
 
