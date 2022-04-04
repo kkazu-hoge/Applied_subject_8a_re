@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :users, only: [:index,:show,:edit,:update] do
+    get :search_post, on: :member
     resources :relationships, only: [:create, :destroy] do
       get :follow_index, on: :collection
       get :follower_index, on: :collection
@@ -57,6 +58,7 @@ end
 #                     user GET    /users/:id(.:format)                       users#show
 #                           PATCH  /users/:id(.:format)                       users#update
 #                           PUT    /users/:id(.:format)                       users#update
+#               search_user GET    /users/:id/search(.:format)              users#search
 #           book_favorites POST   /books/:book_id/favorites(.:format)        favorites#create
 #             book_favorite DELETE /books/:book_id/favorites/:id(.:format)    favorites#destroy
 #                     books GET    /books(.:format)                           books#index

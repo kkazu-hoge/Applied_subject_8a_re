@@ -48,6 +48,11 @@ class UsersController < ApplicationController
     end
   end
 
+  def search_post
+    user = User.find(params[:id])
+    @search_post_count = user.books.date_post_books_count(params[:search_date])
+  end
+
   private
 
   def user_params

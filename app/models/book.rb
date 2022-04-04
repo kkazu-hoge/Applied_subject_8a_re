@@ -6,7 +6,7 @@ class Book < ApplicationRecord
 
   validates :title, presence:true
   validates :body, presence:true,length:{maximum:200}
-  
+
   scope :today_post_books, ->{where("created_at >= ?", Time.zone.now.beginning_of_day).count}
   scope :previous_post_books, ->{where(created_at: 1.day.ago.all_day).count}
   scope :ago2_post_books, ->{where(created_at: 2.day.ago.all_day).count}
@@ -14,5 +14,15 @@ class Book < ApplicationRecord
   scope :ago4_post_books, ->{where(created_at: 4.day.ago.all_day).count}
   scope :ago5_post_books, ->{where(created_at: 5.day.ago.all_day).count}
   scope :ago6_post_books, ->{where(created_at: 6.day.ago.all_day).count}
-  
+
+
+  #クラスメソッド#
+
+  def self.date_post_books_count(search_date)
+    count_result =  Book.where(created_at: search_date.in_time_zone.all_day).count
+    return count_result
+  end
+
+  #インスタンスメソッド#
+
 end
