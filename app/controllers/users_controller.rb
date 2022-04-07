@@ -6,7 +6,8 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     #ページネーション追加#
-    @books = @user.books.page(params[:page])
+    @books = @user.books.sort_books_favorite_desc
+    # page(params[:page])
     @book = Book.new
     #投稿数関連のデータ取得#
     @post_books_cnt = User.find(params[:id]).post_books_count

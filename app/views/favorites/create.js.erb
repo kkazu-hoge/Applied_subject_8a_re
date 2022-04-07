@@ -1,2 +1,2 @@
-$("#fav_<%= @favorite_book.id %>").html("<%= escape_javascript(render "books/favorite", {book: @favorite_book} ) %>");
-<!--$("#books_index").html("%= escape_javascript(render "books/index", {books: @books} ) %>");-->
+<!--$("#fav_%= @favorite_book.id %>").html("%= escape_javascript(render "books/favorite", {book: @favorite_book} ) %>");-->
+$("#books_index").html("<%= escape_javascript(render "books/index", {books: @books} ) %>");

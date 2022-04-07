@@ -5,10 +5,10 @@ class FavoritesController < ApplicationController
   def create
     #いいねの部分テンプレート用インスタンス変数
     @favorite_book = Book.find(params[:book_id])
-    #book一覧の部分テンプレート用のインスタンス変数
-    # @books = Book.book_favorite_sort.page(params[:page])
     @favorite = current_user.favorites.new(book_id: @favorite_book.id)
     @favorite.save
+    #book一覧の部分テンプレート用のインスタンス変数（いいね保存後に）
+    @books = Book.sort_books_favorite_desc
     # if @favorite.save
       #view側にcreateを実行した画面IDの情報を持たせて
       #リクエストパラメータで判定してリダイレクト先を
@@ -31,6 +31,8 @@ class FavoritesController < ApplicationController
     @favorite_book = Book.find(params[:book_id])
     @favorite = current_user.favorites.find_by(book_id: @favorite_book.id)
     @favorite.destroy
+    #book一覧の部分テンプレート用のインスタンス変数（いいね保存後に）
+    @books = Book.sort_books_favorite_desc
     # if params[:disp_id] == "v_index"
     #   redirect_to books_path
     # else
