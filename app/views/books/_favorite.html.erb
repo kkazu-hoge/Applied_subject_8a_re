@@ -1,13 +1,13 @@
-<% if book.favorites.exists?(user_id: current_user.id) %>
-  <%= link_to book_favorite_path(book.id, book.favorites.find_by(user_id: current_user.id).id, disp_id: "v_index"),
-  method: :delete, class: "fav_icon_destroy",id: "fav_#{book.id}", remote: true do %>
+<% if Book.find(book["id"]).favorites.exists?(user_id: current_user.id) %>
+  <%= link_to book_favorite_path(book["id"], Book.find(book["id"]).favorites.find_by(user_id: current_user.id).id, disp_id: "v_index"),
+  method: :delete, class: "fav_icon_destroy",id: "fav_#{book["id"]}", remote: true do %>
     <span class="fas fa-heart"></span>
-    <%= book.favorites.count %>
+    <%= Book.find(book["id"]).favorites.count %>
   <% end %>
 <% else %>
-  <%= link_to book_favorites_path(book.id, disp_id: "v_index"),
-  method: :post, class: "fav_icon_create",id: "fav_#{book.id}", remote: true do %>
+  <%= link_to book_favorites_path(book["id"], disp_id: "v_index"),
+  method: :post, class: "fav_icon_create",id: "fav_#{book["id"]}", remote: true do %>
     <span class="fas fa-heart"></span>
-    <%= book.favorites.count %>
+    <%= Book.find(book["id"]).favorites.count %>
   <% end %>
 <% end %>
