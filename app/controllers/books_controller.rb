@@ -16,7 +16,9 @@ class BooksController < ApplicationController
 
   def index
     #ページネーション追加
-    @books = Book.all.page(params[:page])
+    # @books = Book.all.page(params[:page])
+    @books = Book.books_favorite_sort.page(params[:page])
+    # @books = Book.sort_books_favorite_desc.to_a
     @book = Book.new
   end
 

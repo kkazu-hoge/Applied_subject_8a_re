@@ -3,7 +3,10 @@ class FavoritesController < ApplicationController
   before_action :set_search_window
 
   def create
+    #いいねの部分テンプレート用インスタンス変数
     @favorite_book = Book.find(params[:book_id])
+    #book一覧の部分テンプレート用のインスタンス変数
+    # @books = Book.book_favorite_sort.page(params[:page])
     @favorite = current_user.favorites.new(book_id: @favorite_book.id)
     @favorite.save
     # if @favorite.save
