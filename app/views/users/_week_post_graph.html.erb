@@ -1,4 +1,4 @@
-<canvas id="myChart" width="400" height="200"></canvas>
+<canvas id="myChart" width="630" height="300"></canvas>
 <script>
 $(document).on('turbolinks:load', function() {
   const ctx = document.getElementById('myChart').getContext('2d');
@@ -20,11 +20,22 @@ $(document).on('turbolinks:load', function() {
         }]
     },
     options: {
-        scales: {
-            y: {
-                beginAtZero: true
-            }
+      responsive: true,
+      plugins: {
+        title: {
+          display: true,
+          text: '7日間の投稿数の比較'
         }
+      },
+      scales: {
+        y: {
+          suggestedMin: 0,
+          suggestedMax: 5,
+          ticks: {
+            stepSize: 1
+          }
+        }
+      },
     }
   });
 });
