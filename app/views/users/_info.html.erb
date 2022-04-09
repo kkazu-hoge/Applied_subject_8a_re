@@ -38,3 +38,16 @@
     <%= link_to "フォローする", user_relationships_path(user.id, follower_id: current_user.id), method: :post, class: "btn btn-success btn-block" %>
   <% end %>
 </div>
+<br>
+<div class='row'>
+<% if user.id != current_user.id %>
+  <% if user.followers.exists?(user_id: current_user.id)&&current_user.followers.exists?(user_id: user.id)%>
+    <!--%= link_to "#{user.name}さんとChatする", user_relationship_chats_path(user.id, user.relationships.find_by(follower_id: Follower.find_by(user_id: current_user.id).id).id, login_user: current_user.id), method: :get, class: "btn btn-secondary btn-block" %>-->
+    <%= link_to "#{user.name}さんとChatする", user_chats_path(user.id, follower_id:current_user.id), method: :get, class: "btn btn-secondary btn-block" %>
+  <% else %>
+    <!--何も表示しない-->
+  <% end %>
+<% else %>
+    <!--何も表示しない-->
+<% end %>
+</div>

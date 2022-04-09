@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_30_043553) do
+ActiveRecord::Schema.define(version: 2022_04_09_041542) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -56,6 +56,20 @@ ActiveRecord::Schema.define(version: 2022_03_30_043553) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "chat_rooms", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "chats", force: :cascade do |t|
+    t.integer "chat_room_id"
+    t.integer "from_user_id"
+    t.text "message"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "favorites", force: :cascade do |t|
     t.integer "book_id"
     t.integer "user_id"
@@ -83,6 +97,7 @@ ActiveRecord::Schema.define(version: 2022_03_30_043553) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "follower_id"
     t.integer "followed_id"
+    t.integer "chat_room_id"
   end
 
   create_table "users", force: :cascade do |t|
