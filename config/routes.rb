@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'chats/index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   root :to =>'homes#top'
@@ -7,6 +8,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users, only: [:index,:show,:edit,:update] do
     get :search_post, on: :member
+    resources :chats, only: [:index, :create]
     resources :relationships, only: [:create, :destroy] do
       get :follow_index, on: :collection
       get :follower_index, on: :collection
@@ -74,5 +76,6 @@ end
           # user_relationship DELETE /users/:user_id/relationships/:id(.:format)   relationships#destroy
 # follow_index_user_relationships GET    /users/:user_id/relationships/follow_index(.:format)    relationships#follow_index
 # follower_index_user_relationships GET  /users/:user_id/relationships/follower_index(.:format)  relationships#follower_index
-
+                        # user_chats GET    /users/:user_id/chats(.:format)         chats#index
+                        #           POST   /users/:user_id/chats(.:format)         chats#create
 
