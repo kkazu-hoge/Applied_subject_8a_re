@@ -20,8 +20,8 @@
       </table>
       <div class='row'>
         <div class='col-md-8'>
-          <%= form_with model:@chat_message, url: user_chats_path(@to_user.id, from_user_id: @from_user.id), local:true do |f| %>
-            <%= render 'layouts/errors', obj: @chat_message %>
+          <%= form_with model:@chat, url: user_chats_path(@to_user.id, from_user_id: @from_user.id), local:true do |f| %>
+            <%= render 'layouts/errors', obj: @chat %>
             <div class="form-group">
               <%= f.text_field :message, class: "form-control introduction", id: "chat_message" %>
             </div>

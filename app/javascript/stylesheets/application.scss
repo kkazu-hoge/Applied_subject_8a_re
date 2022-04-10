@@ -16,3 +16,22 @@
 .search_window_post{
   margin: 10px
 }
+
+.err_area {
+    border: solid 3px;
+    border-color: #dc143c;
+    padding: 0;
+    margin: 10px;
+}
+
+.err_title {
+    color: white;
+    font-size: 12px;
+    background-color: #dc143c;
+    border: none;
+    margin: 0;
+}
+
+.err_mes_area {
+    background-color: white;
+}
